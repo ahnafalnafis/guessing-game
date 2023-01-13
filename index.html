@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guessing game</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
+        <script async defer src="./index.js"></script>
+    </head>
+    <body class="light">
+        <!-- <div id="theme">🤓</div> -->
+        <div class="container">
+            <div class="title">
+                <img src="./favicon.png" alt="Guessing" />
+                <h1>Guessing Game</h1>
+            </div>
+            <div class="form-container">
+                <form autocomplete="off">
+                    <div class="name-container">
+                        <h4>Name</h4>
+                        <div class="names">
+                            <input
+                                type="text"
+                                id="first-name"
+                                placeholder="First name"
+                                name="fname"
+                                required
+                            />
+                            <input
+                                type="text"
+                                id="last-name"
+                                placeholder="Last name"
+                                name="lname"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class="range-container">
+                        <h4>Range of guess</h4>
+                        <input
+                            type="number"
+                            min="5"
+                            id="range"
+                            name="range"
+                            placeholder="Give a range of number"
+                            required
+                        />
+                        <!-- <p class="range-warn"> -->
+                        <!--     Do not put very large number so that your screen look -->
+                        <!--     messy. -->
+                        <!-- </p> -->
+                    </div>
+                    <div class="gender-container">
+                        <h4>Gender</h4>
+                        <select
+                            name="gender"
+                            id="gender"
+                            onchange="javascript: emojiSwitch(this.options[this.selectedIndex].value)"
+                            required
+                        >
+                            <option value="null">Select a gender</option>
+                            <option value="male">👨 Male</option>
+                            <option value="female">👩 Female</option>
+                            <option value="others">🙂 Others</option>
+                        </select>
+                    </div>
+                    <div class="mode-selection-container">
+                        <h4>Guesser</h4>
+                        <select name="mode" id="mode">
+                            <option value="null">Select a mode</option>
+                            <option value="human">👨 Human</option>
+                            <option value="computer">🤖 Computer</option>
+                        </select>
+                    </div>
+                    <div class="button-container">
+                        <button
+                            type="submit"
+                            onclick="event.preventDefault();main({firstName: fname.value, lastName: lname.value, range: range.value, gender: gender.value, mode: mode.value})"
+                        >
+                            Start
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
